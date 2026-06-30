@@ -159,3 +159,58 @@ void Library::removeMember()
     members.erase(members.begin() + idx);
     cout << "Member with id->" << ID << " removed successfully (:\n";
 }
+
+void Library::issueBook()
+{
+    int memberId;
+    int bookId;
+
+    cout<<"Please !! Enter your Member id : ";
+    cin>>memberId;
+
+    int memberIndex = findMember(memberId);
+    if (memberIndex == -1)
+    {
+        cout<<"You're not the member of library ! please Take membership first :)\n";
+        return;
+    }
+
+    cout << "Enter Book ID :\n";
+    cin>>bookId;
+
+    int bookIndex = findBook(bookId);
+    if (bookIndex == -1)
+    {
+        cout<<"This Book is not available in our library :(\n";
+        return;
+    }
+
+    Book &b = books[bookIndex];
+
+    if (b.getAvailableCopies() == 0)
+    {
+        cout<<"This books copies are not available :( \n";
+        return;
+    }
+
+    b.issueCopy();
+
+    Transaction t;
+    string issueDate;
+    string dueDate;
+
+    cout << "Enter Issue Date : ";
+    cin >> issueDate;
+
+    cout << "Enter Due Date : ";
+    cin >> dueDate;
+
+    t.createTransaction(memberId,bookId,issueDate,dueDate);
+    transactions.push_back(t);
+    cout << "Transaction recorded successfully.\n";
+    
+    cout<<"Book issued succesfully :) \n";
+    cout << "Remaining Copies : "
+         << b.getAvailableCopies()
+         << "\n";
+}

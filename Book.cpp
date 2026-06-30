@@ -18,8 +18,10 @@ void Book::addBook()
     cout << "Enter availableCopies : ";
     cin>>availableCopies;
 
+    cin.ignore();
+    
     cout << "Enter genre : ";
-    cin>>genre;
+    getline(cin,genre);
 }
 
 void Book::displayBook()
@@ -35,4 +37,14 @@ void Book::displayBook()
 int Book::getId()
 {
     return id;
+}
+
+int Book::getAvailableCopies()
+{
+    return availableCopies;
+}
+
+void Book::issueCopy()
+{
+    if(availableCopies>0)availableCopies -= 1;
 }

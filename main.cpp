@@ -19,7 +19,8 @@ int main()
         cout << "6. Display Member\n";
         cout << "7. Search Member\n";
         cout << "8. Remove Member\n";
-        cout << "9. Exit\n";
+        cout << "9. issue Book\n";
+        cout << "10. Exit\n";
 
         cout << "Enter choice : ";
 
@@ -73,15 +74,19 @@ int main()
         case 8:
             library.removeMember();
             break;
-
+        
         case 9:
+            library.issueBook();
+            break;
+            
+        case 10:
             cout << "Goodbye!\n";
             break;
             
         default:
             cout << "Invalid Choice\n";
         }
-    }while(choice!=9);
+    }while(choice!=10);
 
     return 0;
 }

@@ -20,6 +20,8 @@ class Book
         void addBook();
         void displayBook();
         int getId();
+        int getAvailableCopies();
+        void issueCopy();
 };
 
 #endif
