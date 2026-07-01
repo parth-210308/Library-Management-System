@@ -18,6 +18,13 @@ void Book::addBook()
     cout << "Enter availableCopies : ";
     cin>>availableCopies;
 
+    if(availableCopies>totalCopies)
+    {
+        cout<<"availableCopies should be less than equal to totalCopies !!\n";
+        cout << "Enter availableCopies : ";
+        cin >> availableCopies;
+    }
+    
     cin.ignore();
     
     cout << "Enter genre : ";

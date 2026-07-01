@@ -20,6 +20,7 @@ class Transaction
         void displayTransaction();
         bool hasReturned();
         bool matchTransaction(int memberID, int bookID);
+        void markReturned();
 };
 
 #endif

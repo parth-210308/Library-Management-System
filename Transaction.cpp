@@ -36,3 +36,8 @@ bool Transaction::matchTransaction(int memberID, int bookID)
 {
     return memberId==memberID && bookId==bookID;
 }
+
+void Transaction::markReturned()
+{
+    returned = true;
+}

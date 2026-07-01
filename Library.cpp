@@ -253,8 +253,15 @@ void Library::returnBook()
     }
 
     int bookIdx = findBook(bookId);
+
+    if (bookIdx == -1)
+    {
+        cout << "Book record is missing.\n";
+        return;
+    }
+    
     Book &b = books[bookIdx];
     b.addCopy();
-    transactions.erase(transactions.begin()+transactionIdx);
+    t.markReturned();
     cout<<"Book returned succesfully :)\n";
 }
