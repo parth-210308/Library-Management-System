@@ -214,3 +214,47 @@ void Library::issueBook()
          << b.getAvailableCopies()
          << "\n";
 }
+
+int Library::findTransaction(int memberId,int bookId)
+{
+    for (size_t i = 0; i < transactions.size();++i)
+    {
+        Transaction &t = transactions[i];
+        if(t.matchTransaction(memberId,bookId))
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void Library::returnBook()
+{
+    cout << "Enter Member ID : ";
+    int memberId;
+    cin >> memberId;
+    cout << "Enter Book ID : ";
+    int bookId;
+    cin >> bookId;
+
+    int transactionIdx = findTransaction(memberId, bookId);
+    if (transactionIdx == -1)
+    {
+        cout << "You were not take this book \n";
+        return;
+    }
+
+    Transaction &t = transactions[transactionIdx];
+
+    if(t.hasReturned())
+    {
+        cout<<"You're areadly returned this book \n";
+        return;
+    }
+
+    int bookIdx = findBook(bookId);
+    Book &b = books[bookIdx];
+    b.addCopy();
+    transactions.erase(transactions.begin()+transactionIdx);
+    cout<<"Book returned succesfully :)\n";
+}

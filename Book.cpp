@@ -44,6 +44,11 @@ int Book::getAvailableCopies()
     return availableCopies;
 }
 
+void Book::addCopy()
+{
+    availableCopies++;
+}
+
 void Book::issueCopy()
 {
     if(availableCopies>0)availableCopies -= 1;

@@ -22,6 +22,7 @@ class Book
         int getId();
         int getAvailableCopies();
         void issueCopy();
+        void addCopy();
 };
 
 #endif

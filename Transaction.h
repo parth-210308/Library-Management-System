@@ -18,6 +18,8 @@ class Transaction
     public:
         void createTransaction(int memberId,int bookId,std::string issueDate,std::string dueDate);
         void displayTransaction();
+        bool hasReturned();
+        bool matchTransaction(int memberID, int bookID);
 };
 
 #endif

@@ -30,6 +30,8 @@ class Library
 
         void issueBook();
         void displayTransactions();
+        int findTransaction(int memberId, int bookId);
+        void returnBook();
 };
 
 #endif

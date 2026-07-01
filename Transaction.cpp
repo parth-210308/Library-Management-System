@@ -26,3 +26,13 @@ void Transaction::displayTransaction()
     else
         cout << "No\n";
 }
+
+bool Transaction::hasReturned()
+{
+    return returned;
+}
+
+bool Transaction::matchTransaction(int memberID, int bookID)
+{
+    return memberId==memberID && bookId==bookID;
+}

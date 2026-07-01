@@ -20,7 +20,8 @@ int main()
         cout << "7. Search Member\n";
         cout << "8. Remove Member\n";
         cout << "9. issue Book\n";
-        cout << "10. Exit\n";
+        cout << "10. return Book\n";
+        cout << "11. Exit\n";
 
         cout << "Enter choice : ";
 
@@ -78,15 +79,19 @@ int main()
         case 9:
             library.issueBook();
             break;
-            
+    
         case 10:
+            library.returnBook();
+            break;
+            
+        case 11:
             cout << "Goodbye!\n";
             break;
             
         default:
             cout << "Invalid Choice\n";
         }
-    }while(choice!=10);
+    }while(choice!=11);
 
     return 0;
 }
